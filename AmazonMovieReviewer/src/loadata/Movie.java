@@ -5,10 +5,10 @@ public class Movie implements Comparable <Movie>{
 	public String productID;
 	public int Rating;
 	
-	public Movie(Review[] reviews, String productID, int rating) {
-		this.reviews = reviews;
+	public Movie(String productID) {
+
 		this.productID = productID;
-		this.Rating = rating;
+
 	}
 
 	public Review[] getReviews() {
