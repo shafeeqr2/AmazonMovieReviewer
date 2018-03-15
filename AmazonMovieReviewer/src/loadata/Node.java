@@ -1,4 +1,4 @@
-package adt;
+package loadata;
 
 public class Node implements Comparable <Node>{
 	public String userID;

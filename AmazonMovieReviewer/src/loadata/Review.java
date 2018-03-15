@@ -1,4 +1,4 @@
-package adt;
+package loadata;
 
 public class Review {
 	public String userID;

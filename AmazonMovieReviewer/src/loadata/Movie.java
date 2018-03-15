@@ -1,4 +1,4 @@
-package adt;
+package loadata;
 
 public class Movie implements Comparable <Movie>{
 	public Review[] reviews;
