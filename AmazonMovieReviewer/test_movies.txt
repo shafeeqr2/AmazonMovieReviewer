@@ -997,4 +997,3 @@ review/time: 1163376000
 review/summary: Excellent
 review/text: Do you remember having to read this story in high school literature? I enjoyed it then and I love it even more now.  The movie graphics are so much better than my imagination.  It has all of the essentials to satisfy both mine and my husbands movie expectations - romance, intrigue, sword fights, action. Definitely a movie to add to your collection.
 
-product/productId: B000063W1R
