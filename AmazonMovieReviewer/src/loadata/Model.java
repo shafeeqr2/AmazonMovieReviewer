@@ -13,7 +13,9 @@ public class Model {
 	 * (Demonstrates Java FileReader, BufferedReader, and Java5.)
 	 */
 	
-	static List<Movie> movies = new ArrayList<Movie>();
+//	static List<Movie> movies = new ArrayList<Movie>();
+	SortedList<Integer> movies = new SortedList<Integer>();
+
 	
 //	public static movies 
 	
@@ -74,8 +76,8 @@ public class Model {
 	public static void main(String[] args) {
 
 		List<String> myFile = Model.readFile("./test_movies.txt");
-
 		
+
 	}
 
 }
