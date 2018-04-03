@@ -70,7 +70,7 @@ public class Model {
 					// 3. Find userId in binary search tree (structured by userId). If node is
 					// found, then add to movies array.
 					userMovie umovie = new userMovie(productId, score);
-//					binaryST.add(userId, umovie);
+					binaryST.add(userId, umovie);
 
 					records.clear();
 				}
@@ -93,6 +93,9 @@ public class Model {
 		for (Movie m : movies) {
 			System.out.println(m.getProductID());
 		}
+		System.out.println(binaryST.get("A1I7QGUDP043DG")[0]);
+
+		
 
 	}
 

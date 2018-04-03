@@ -1,10 +1,11 @@
 package loadata;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Node implements Comparable<Node> {
 	public String userID;
-	public List<userMovie> userMovies;
+	public List<userMovie> userMovies = new ArrayList<userMovie>();
 	Node left;
 	Node right;
 
