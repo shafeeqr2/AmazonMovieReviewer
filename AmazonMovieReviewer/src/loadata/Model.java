@@ -13,9 +13,12 @@ public class Model {
 	 * (Demonstrates Java FileReader, BufferedReader, and Java5.)
 	 */
 
+	//Declaration of the movies array
 	static SortedList<Movie> movies = new SortedList<Movie>();
 
-	// method to check for collisions.
+	//Declaration of the Binary Search Tree
+	static BST binaryST = new BST();
+
 
 	private static String getRowData(List<String> records, int rowNum) {
 		return records.get(rowNum).substring(records.get(rowNum).indexOf(" ") + 1);
@@ -40,7 +43,7 @@ public class Model {
 			while ((line = reader.readLine()) != null) {
 
 				records.add(line);
-				// System.out.println(line);
+//				System.out.println(line);
 				if (line.trim().length() == 0) {
 
 					String productId = getRowData(records, 0);
@@ -63,8 +66,11 @@ public class Model {
 					
 					// 2. Add review to the movies array (sorted by productId)
 					checkAddMovie(movie);
+					
 					// 3. Find userId in binary search tree (structured by userId). If node is
 					// found, then add to movies array.
+					userMovie umovie = new userMovie(productId, score);
+//					binaryST.add(userId, umovie);
 
 					records.clear();
 				}
@@ -72,7 +78,6 @@ public class Model {
 			}
 
 			reader.close();
-			// System.out.println(line);
 
 			return records;
 		} catch (Exception e) {

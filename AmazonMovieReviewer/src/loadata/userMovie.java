@@ -3,19 +3,19 @@ package loadata;
 public class userMovie {
 
 	private String productId;
-	private double rating;
+	private double score;
 
-	public userMovie(String productId, double rating) {
+	public userMovie(String productId, double score) {
 		this.productId = productId;
-		this.rating = rating;
+		this.score = score;
 	}
 
 	public String getProductId() {
 		return productId;
 	}
 
-	public double getRating() {
-		return rating;
+	public double getScore() {
+		return score;
 	}
 
 }

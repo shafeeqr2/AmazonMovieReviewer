@@ -34,13 +34,15 @@ public class BST {
 				current = current.right;
 			else b=false;
 		}
+		
 		SortedList<String> str = new SortedList<String>();
 		int i =0;
 		for(userMovie m :current.getMoviesByUser()) {
-			if(m.getRating() >= 4.0)
+			if(m.getScore() >= 4.0)
 				str.addSortItem(m.getProductId());
 				i++;
 		}
+		
 		String[] str_userID = new String[i];
 		for (int j=0;j<i;j++)
 			str_userID[j]=str.get(j);
