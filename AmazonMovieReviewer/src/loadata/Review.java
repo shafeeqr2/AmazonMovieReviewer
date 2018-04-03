@@ -4,20 +4,24 @@ public class Review implements Comparable<Review> {
 	private String userID;
 	private String review_title;
 	private String review_detail;
-	private int helpfulness;
+	private double helpfulness;
+	private int helpfulnessCount;
 	private String productID;
 
-	public Review(String userID, String review_title, String review_detail, int helpfulness, String productID) {
+
+	public Review(String userID, String review_title, String review_detail, double helpfulness, int helpfulnessCount,
+			String productID) {
 		this.userID = userID;
 		this.review_title = review_title;
 		this.review_detail = review_detail;
 		this.helpfulness = helpfulness;
+		this.helpfulnessCount = helpfulnessCount;
 		this.productID = productID;
 	}
 
 	@Override
 	public int compareTo(Review o) {
-		return this.getUserID().compareTo(o.getUserID());
+		return this.helpfulnessCount - o.getHelpfulnessCount();
 	}
 
 	public String getUserID() {
@@ -32,12 +36,18 @@ public class Review implements Comparable<Review> {
 		return review_detail;
 	}
 
-	public int getHelpfulness() {
+	public double getHelpfulness() {
 		return helpfulness;
+	}
+
+	public int getHelpfulnessCount() {
+		return helpfulnessCount;
 	}
 
 	public String getProductID() {
 		return productID;
 	}
+
+
 
 }

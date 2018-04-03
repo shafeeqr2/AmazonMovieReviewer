@@ -12,60 +12,67 @@ public class Model {
 	 * Open and read a file, and return the lines in the file as a list of Strings.
 	 * (Demonstrates Java FileReader, BufferedReader, and Java5.)
 	 */
-	
 
 	static SortedList<Movie> movies = new SortedList<Movie>();
 
-	
-//	method to check for collisions.
-	
+	// method to check for collisions.
+
 	private static String getRowData(List<String> records, int rowNum) {
 		return records.get(rowNum).substring(records.get(rowNum).indexOf(" ") + 1);
+	}
+	
+	public static void checkAddMovie(Movie movie) {
+		for (Movie m : movies) {
+			if (m.getProductID().equals(movie.getProductID())) return;
+		}
+		
+		movies.addSortItem(movie);
 	}
 
 	private static List<String> readFile(String filename) {
 
-		//Records for one single review.
+		// Records for one single review.
 		List<String> records = new ArrayList<String>();
 
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(filename));
 			String line;
 			while ((line = reader.readLine()) != null) {
-				
+
 				records.add(line);
-//				System.out.println(line);
+				// System.out.println(line);
 				if (line.trim().length() == 0) {
 
 					String productId = getRowData(records, 0);
 					String userId = getRowData(records, 1);
 					String profileName = getRowData(records, 2);
-					//int helpfulness = Integer.parseInt(getRowData(records, 3));
-					int helpfulness = 4;
-					String score = getRowData(records, 4);
+					String[] helpfulness_fraction = getRowData(records, 3).split("/");
+					int helpfulnessCounter = Integer.parseInt(helpfulness_fraction[1]);
+					double helpfulness = Double.parseDouble(helpfulness_fraction[0]) / helpfulnessCounter;
+					double score = Double.parseDouble(getRowData(records, 4));
 					String time = getRowData(records, 5);
 					String review_title = getRowData(records, 6);
 					String review_detail = getRowData(records, 7);
+
+					Review review = new Review(userId, review_title, review_detail, helpfulness, helpfulnessCounter,
+							productId);
+					//
+					// 1. Create an entry for movie array if it doesn't already exist.
+					Movie movie = new Movie(productId, score);
+					//Note: we cannot use addSortItem method directly becuase we want to check if the movie already exists first
 					
-					
-					Review review = new Review(userId, review_title, review_detail, helpfulness, productId);
-//					
-//					1. Create an entry for movie array if it doesn't already exist. 
-					Movie movie = new Movie(productId);
-					movies.addSortItem(movie);
-//					2. Add review to the movies array (sorted by productId)
-//					3. Find userId in binary search tree (structured by userId). If node is found, then add to movies array.
-					
-					
+					// 2. Add review to the movies array (sorted by productId)
+					checkAddMovie(movie);
+					// 3. Find userId in binary search tree (structured by userId). If node is
+					// found, then add to movies array.
+
 					records.clear();
 				}
-					
-
 
 			}
 
 			reader.close();
-//			System.out.println(line);
+			// System.out.println(line);
 
 			return records;
 		} catch (Exception e) {
@@ -79,7 +86,7 @@ public class Model {
 
 		List<String> myFile = Model.readFile("./test_movies.txt");
 		for (Movie m : movies) {
-			System.out.println(m.productID);
+			System.out.println(m.getProductID());
 		}
 
 	}

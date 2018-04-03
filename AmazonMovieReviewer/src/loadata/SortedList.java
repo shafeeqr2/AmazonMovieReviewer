@@ -38,6 +38,7 @@ public class SortedList<E extends Comparable<E>>  implements Iterable<E> {
 	public E get(int i) {
 		return arraylist.get(i);
 	}
+	
 
 	@Override
 	public Iterator<E> iterator() {

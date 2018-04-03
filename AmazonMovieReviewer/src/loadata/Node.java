@@ -26,7 +26,6 @@ public class Node implements Comparable<Node> {
 			if (um.getProductId().equals(umovie.getProductId())) return;
 		}
 		
-		
 		//add user movie
 		userMovies.add(umovie);
 	}
