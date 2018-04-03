@@ -13,8 +13,8 @@ public class Model {
 	 * (Demonstrates Java FileReader, BufferedReader, and Java5.)
 	 */
 	
-//	static List<Movie> movies = new ArrayList<Movie>();
-	SortedList<Integer> movies = new SortedList<Integer>();
+
+	static SortedList<Movie> movies = new SortedList<Movie>();
 
 	
 //	public static movies 
@@ -34,7 +34,7 @@ public class Model {
 			while ((line = reader.readLine()) != null) {
 				
 				records.add(line);
-				System.out.println(line);
+//				System.out.println(line);
 				if (line.trim().length() == 0) {
 
 					String productId = getRowData(records, 0);
@@ -51,6 +51,8 @@ public class Model {
 					Review review = new Review(userId, review_title, review_detail, helpfulness, productId);
 //					
 //					1. Create an entry for movie array if it doesn't already exist. 
+					Movie movie = new Movie(productId);
+					movies.addSortItem(movie);
 //					2. Add review to the movies array (sorted by productId)
 //					3. Find userId in binary search tree (structured by userId). If node is found, then add to movies array.
 					
@@ -63,7 +65,7 @@ public class Model {
 			}
 
 			reader.close();
-			System.out.println(line);
+//			System.out.println(line);
 
 			return records;
 		} catch (Exception e) {
@@ -76,7 +78,9 @@ public class Model {
 	public static void main(String[] args) {
 
 		List<String> myFile = Model.readFile("./test_movies.txt");
-		
+		for (Movie m : movies) {
+			System.out.println(m.productID);
+		}
 
 	}
 

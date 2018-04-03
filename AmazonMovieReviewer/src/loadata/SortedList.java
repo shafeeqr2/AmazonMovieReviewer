@@ -1,8 +1,9 @@
 package loadata;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class SortedList<E extends Comparable<E>> {
+public class SortedList<E extends Comparable<E>>  implements Iterable<E> {
 
 	private ArrayList<E> arraylist = new ArrayList<E>();
 
@@ -32,6 +33,11 @@ public class SortedList<E extends Comparable<E>> {
 
 		}
 
+	}
+
+	@Override
+	public Iterator<E> iterator() {
+		return arraylist.iterator();
 	}
 
 }
