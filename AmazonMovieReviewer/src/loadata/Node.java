@@ -2,7 +2,7 @@ package loadata;
 
 public class Node implements Comparable <Node>{
 	public String userID;
-	public Movie[] moviesByUser;
+	public String[] moviesByUser;
 	
 	public Node(String userID, Movie[] moviesByUser) {
 		this.userID = userID;

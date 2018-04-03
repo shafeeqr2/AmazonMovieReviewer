@@ -13,7 +13,9 @@ public class Model {
 	 * (Demonstrates Java FileReader, BufferedReader, and Java5.)
 	 */
 	
-	static List<Movie> movies = new ArrayList<Movie>();	
+	static List<Movie> movies = new ArrayList<Movie>();
+	
+//	public static movies 
 	
 	private static String getRowData(List<String> records, int rowNum) {
 		
@@ -22,6 +24,7 @@ public class Model {
 
 	private static List<String> readFile(String filename) {
 
+		//Records for one single review.
 		List<String> records = new ArrayList<String>();
 
 		try {
@@ -36,16 +39,19 @@ public class Model {
 					String productId = getRowData(records, 0);
 					String userId = getRowData(records, 1);
 					String profileName = getRowData(records, 2);
-					String helpfulness = getRowData(records, 3);
+					int helpfulness = Integer.parseInt(getRowData(records, 3));
 					String score = getRowData(records, 4);
 					String time = getRowData(records, 5);
-					String summary = getRowData(records, 6);
-					String data = getRowData(records, 7);
+					String review_title = getRowData(records, 6);
+					String review_detail = getRowData(records, 7);
 					
 					
-					Movie movie = new Movie(productId);
+					Review review = new Review(userId, review_title, review_detail, helpfulness, productId);
+//					
+//					1. Create an entry for movie array if it doesn't already exist. 
+//					2. Add review to the movies array (sorted by productId)
+//					3. Find userId in binary search tree (structured by userId). If node is found, then add to movies array.
 					
-					movies.add(movie);
 					
 					records.clear();
 				}
