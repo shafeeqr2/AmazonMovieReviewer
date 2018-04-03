@@ -17,7 +17,7 @@ public class Model {
 	static SortedList<Movie> movies = new SortedList<Movie>();
 
 	
-//	public static movies 
+//	method to check for collisions.
 	
 	private static String getRowData(List<String> records, int rowNum) {
 		return records.get(rowNum).substring(records.get(rowNum).indexOf(" ") + 1);
