@@ -18,7 +18,6 @@ public class Model {
 //	public static movies 
 	
 	private static String getRowData(List<String> records, int rowNum) {
-		
 		return records.get(rowNum).substring(records.get(rowNum).indexOf(" ") + 1);
 	}
 
@@ -39,7 +38,8 @@ public class Model {
 					String productId = getRowData(records, 0);
 					String userId = getRowData(records, 1);
 					String profileName = getRowData(records, 2);
-					int helpfulness = Integer.parseInt(getRowData(records, 3));
+					//int helpfulness = Integer.parseInt(getRowData(records, 3));
+					int helpfulness = 4;
 					String score = getRowData(records, 4);
 					String time = getRowData(records, 5);
 					String review_title = getRowData(records, 6);

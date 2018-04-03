@@ -1,25 +1,38 @@
 package loadata;
 
-public class Node implements Comparable <Node>{
+import java.util.List;
+
+public class Node implements Comparable<Node> {
 	public String userID;
-	public String[] moviesByUser;
-	
-	public Node(String userID, Movie[] moviesByUser) {
+	public List<userMovie> userMovies;
+
+	public Node(String userID, userMovie umovie) {
 		this.userID = userID;
-		this.moviesByUser = moviesByUser;
+		this.userMovies.add(umovie);
 	}
 
 	public String getUserID() {
 		return userID;
 	}
+	
+	public void add(userMovie umovie) {
+		
+		//check if userMovie already exists
+		for (userMovie um :userMovies) {
+			if (um.getProductId().equals(umovie.getProductId())) return;
+		}
+		
+		
+		//add user movie
+		userMovies.add(umovie);
+	}
 
-	public Movie[] getMoviesByUser() {
-		return moviesByUser;
+	public List<userMovie> getMoviesByUser() {
+		return userMovies;
 	}
 
 	public int compareTo(Node that) {
 		return this.userID.compareTo(that.getUserID());
 	}
-	
-	
+
 }
