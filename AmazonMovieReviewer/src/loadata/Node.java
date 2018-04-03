@@ -5,10 +5,14 @@ import java.util.List;
 public class Node implements Comparable<Node> {
 	public String userID;
 	public List<userMovie> userMovies;
+	Node left;
+	Node right;
 
 	public Node(String userID, userMovie umovie) {
 		this.userID = userID;
 		this.userMovies.add(umovie);
+		left = null;
+		right = null;
 	}
 
 	public String getUserID() {
