@@ -156,38 +156,14 @@ public class Model {
 
 	public static void main(String[] args) {
 
-		Model.readFile("movies.txt");
-//		Model.readFile("./test_movies.txt");
-
-		// This code is for testing purposes.
-//		for (Movie m : movies) {
-//
-//			ArrayList<Review> testreviews = Model.getTop2Reviews(m.getProductID());
-//
-//			if (testreviews == null) {
-//				System.out.println("no goog reveiws for " + m.getProductID());
-//			} else {
-//				System.out.println("review for " + m.getProductID());
-//				for (Review r : testreviews) {
-//					System.out.println(r.getUserID() + " " + r.getHelpfulness());
-//				}
-//				System.out.println();
-//
-//			}
-//
-//		}
-		
-		GUI gui = new GUI();
-		gui.setVisible(true);
-	}
-
-<<<<<<< Updated upstream:AmazonMovieReviewer/src/loadata/Model.java
+//		Model.readFile("movies.txt");
 		Model.readFile("./test_movies.txt");
+
+//		 This code is for testing purposes.
 		for (Movie m : movies) {
-//			System.out.println(m.getProductID());
 
 			ArrayList<Review> testreviews = Model.getTop2Reviews(m.getProductID());
-			
+
 			if (testreviews == null) {
 				System.out.println("no goog reveiws for " + m.getProductID());
 			} else {
@@ -196,20 +172,21 @@ public class Model {
 					System.out.println(r.getUserID() + " " + r.getHelpfulness());
 				}
 				System.out.println();
-				
-			}
-			
 
-
-				
 			}
+
 		}
-<<<<<<< HEAD
-		System.out.println(binaryST.size());
-		binaryST.Balance();
-		System.out.println(binaryST.size());
 		
-=======
+		GUI gui = new GUI();
+		gui.setVisible(true);
+	}
+
+
+
+//		System.out.println(binaryST.size());
+//		binaryST.Balance();
+//		System.out.println(binaryST.size());
+
 
 		// B00004CQT3
 		// B00004CQT4
@@ -221,20 +198,9 @@ public class Model {
 		// B006JIUN2W
 		// B0071AD95K
 		// B0078V2LCY
->>>>>>> 99e34cc953eb2460ddf9ae13f591cb3dfe19eac3
+
 
 	
-=======
-	// B00004CQT3
-	// B00004CQT4
-	// B000063W1R
-	// B00006HAXW
-	// B003AI2VGA
-	// B003ZG3GAM
-	// B004BH1TN0
-	// B006JIUN2W
-	// B0071AD95K
-	// B0078V2LCY
->>>>>>> Stashed changes:AmazonMovieReviewer/src/MVC/Model.java
+
 
 }
