@@ -3,7 +3,7 @@ package loadata;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class SortedList<E extends Comparable<E>>  implements Iterable<E> {
+public class SortedList<E extends Comparable<E>> implements Iterable<E> {
 
 	private ArrayList<E> arraylist = new ArrayList<E>();
 
@@ -34,11 +34,14 @@ public class SortedList<E extends Comparable<E>>  implements Iterable<E> {
 		}
 
 	}
-	
+
+	public int size() {
+		return arraylist.size();
+	}
+
 	public E get(int i) {
 		return arraylist.get(i);
 	}
-	
 
 	@Override
 	public Iterator<E> iterator() {

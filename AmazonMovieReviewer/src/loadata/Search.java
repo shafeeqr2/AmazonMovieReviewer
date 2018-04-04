@@ -16,12 +16,31 @@ public class Search {
 			mid = (lo + hi)/2;
 			
 			if ((target.compareTo(arr[mid])) < 0) {
-				return binarySearch(arr,mid+1,hi,target);
+				return binarySearch(arr,lo,mid,target);
 				
 			} else if (target.compareTo(arr[mid]) > 0) {
-				return binarySearch(arr,lo,mid-1,target);
+				return binarySearch(arr,mid+1,hi,target);
 				
 			}
+			return mid; //target found
+		}
+		return -1; //target not found
+	}
+	
+	public static int binarySearch(SortedList<Movie> arr, int lo, int hi, Movie target) {
+		int mid;
+		if (lo < hi) {
+			
+			mid = (lo + hi)/2;
+			
+			if (target.compareTo(arr.get(mid)) < 0) {
+				return binarySearch(arr,lo,mid,target);
+				
+			} else if (target.compareTo(arr.get(mid)) > 0) {
+				return binarySearch(arr,mid+1,hi,target);
+				
+			}
+			
 			return mid; //target found
 		}
 		return -1; //target not found

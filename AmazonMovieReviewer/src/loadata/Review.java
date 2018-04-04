@@ -21,7 +21,7 @@ public class Review implements Comparable<Review> {
 
 	@Override
 	public int compareTo(Review o) {
-		return this.helpfulnessCount - o.getHelpfulnessCount();
+		return o.getHelpfulnessCount() - this.helpfulnessCount;
 	}
 
 	public String getUserID() {
@@ -47,6 +47,15 @@ public class Review implements Comparable<Review> {
 	public String getProductID() {
 		return productID;
 	}
+
+	@Override
+	public String toString() {
+		return "Review [userID=" + userID + ", review_title=" + review_title + ", review_detail=" + review_detail
+				+ ", helpfulness=" + helpfulness + ", helpfulnessCount=" + helpfulnessCount + ", productID=" + productID
+				+ "]";
+	}
+	
+	
 
 
 
