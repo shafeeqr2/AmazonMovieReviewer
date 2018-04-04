@@ -156,26 +156,26 @@ public class Model {
 
 	public static void main(String[] args) {
 
-//		Model.readFile("movies.txt");
-		Model.readFile("./test_movies.txt");
-
-//		 This code is for testing purposes.
-		for (Movie m : movies) {
-
-			ArrayList<Review> testreviews = Model.getTop2Reviews(m.getProductID());
-
-			if (testreviews == null) {
-				System.out.println("no goog reveiws for " + m.getProductID());
-			} else {
-				System.out.println("review for " + m.getProductID());
-				for (Review r : testreviews) {
-					System.out.println(r.getUserID() + " " + r.getHelpfulness());
-				}
-				System.out.println();
-
-			}
-
-		}
+		Model.readFile("movies.txt");
+//		Model.readFile("./test_movies.txt");
+//
+////		 This code is for testing purposes.
+//		for (Movie m : movies) {
+//
+//			ArrayList<Review> testreviews = Model.getTop2Reviews(m.getProductID());
+//
+//			if (testreviews == null) {
+//				System.out.println("no goog reveiws for " + m.getProductID());
+//			} else {
+//				System.out.println("review for " + m.getProductID());
+//				for (Review r : testreviews) {
+//					System.out.println(r.getUserID() + " " + r.getHelpfulness());
+//				}
+//				System.out.println();
+//
+//			}
+//
+//		}
 		
 		GUI gui = new GUI();
 		gui.setVisible(true);
