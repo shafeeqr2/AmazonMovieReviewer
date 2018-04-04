@@ -93,8 +93,9 @@ public class Model {
 		for (Movie m : movies) {
 			System.out.println(m.getProductID());
 		}
-		System.out.println(binaryST.get("A1I7QGUDP043DG")[0]);
-
+		System.out.println(binaryST.size());
+		binaryST.Balance();
+		System.out.println(binaryST.size());
 		
 
 	}

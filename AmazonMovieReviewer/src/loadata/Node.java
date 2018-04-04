@@ -4,16 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Node implements Comparable<Node> {
-	public String userID;
-	public List<userMovie> userMovies = new ArrayList<userMovie>();
+	private String userID;
+	List<userMovie> userMovies = new ArrayList<userMovie>();
 	Node left;
 	Node right;
+	int size;
 
 	public Node(String userID, userMovie umovie) {
 		this.userID = userID;
 		this.userMovies.add(umovie);
 		left = null;
 		right = null;
+		this.size = 1;
 	}
 
 	public String getUserID() {
