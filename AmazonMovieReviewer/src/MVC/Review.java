@@ -1,4 +1,4 @@
-package loadata;
+package MVC;
 
 public class Review implements Comparable<Review> {
 	private String userID;

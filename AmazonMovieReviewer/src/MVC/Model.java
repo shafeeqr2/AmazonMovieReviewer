@@ -1,4 +1,4 @@
-package loadata;
+package MVC;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -32,15 +32,26 @@ public class Model {
 			// if movie already exists, just add the review
 			if (m.getProductID().equals(movie.getProductID())) {
 				for (Review r : movie.getReviews().getArraylist()) {
-			
+
 					m.add(r);
 				}
-					
+
 				return;
 			}
 		}
 
 		movies.addSortItem(movie);
+	}
+	
+	public static double getMovieRating(String productId) {
+		
+		int movieIndex = findMovie(productId);
+		
+		if (movieIndex < 0) return -1.0;
+		
+		Movie movie = movies.get(movieIndex);
+		
+		return movie.getScore();
 	}
 
 	private static ArrayList<Review> getUptoFirst2Items(SortedList<Review> checkReviews) {
@@ -51,7 +62,6 @@ public class Model {
 			if (r.getHelpfulness() > 0.80)
 				reviews.add(r);
 
-
 			if (reviews.size() >= 2)
 				return reviews;
 		}
@@ -59,24 +69,22 @@ public class Model {
 		return reviews;
 
 	}
-	
+
 	public static int findMovie(String productId) {
-		
+
 		return Search.binarySearch(movies, 0, movies.size(), new Movie(productId));
-		
+
 	}
 
 	public static ArrayList<Review> getTop2Reviews(String productId) {
 
 		int movieIndex = findMovie(productId);
-
+		
 		if (movieIndex < 0) {
 			System.out.println("number does not exists");
 			return null;
 
 		}
-
-			
 
 		Movie movie = movies.get(movieIndex);
 
@@ -115,8 +123,9 @@ public class Model {
 					String review_title = getRowData(records, 6);
 					String review_detail = getRowData(records, 7);
 
-					Review review = new Review(userId, review_title, review_detail, helpfulness, helpfulnessCounter, productId);
-					
+					Review review = new Review(userId, review_title, review_detail, helpfulness, helpfulnessCounter,
+							productId);
+
 					//
 					// 1. Create an entry for movie array if it doesn't already exist.
 					Movie movie = new Movie(productId, score, review);
@@ -138,7 +147,6 @@ public class Model {
 
 			reader.close();
 
-
 		} catch (Exception e) {
 			System.err.format("Exception occurred trying to read '%s'.", filename);
 			e.printStackTrace();
@@ -147,9 +155,33 @@ public class Model {
 	}
 
 	public static void main(String[] args) {
+
+		Model.readFile("movies.txt");
+//		Model.readFile("./test_movies.txt");
+
+		// This code is for testing purposes.
+//		for (Movie m : movies) {
+//
+//			ArrayList<Review> testreviews = Model.getTop2Reviews(m.getProductID());
+//
+//			if (testreviews == null) {
+//				System.out.println("no goog reveiws for " + m.getProductID());
+//			} else {
+//				System.out.println("review for " + m.getProductID());
+//				for (Review r : testreviews) {
+//					System.out.println(r.getUserID() + " " + r.getHelpfulness());
+//				}
+//				System.out.println();
+//
+//			}
+//
+//		}
 		
+		GUI gui = new GUI();
+		gui.setVisible(true);
+	}
 
-
+<<<<<<< Updated upstream:AmazonMovieReviewer/src/loadata/Model.java
 		Model.readFile("./test_movies.txt");
 		for (Movie m : movies) {
 //			System.out.println(m.getProductID());
@@ -192,5 +224,17 @@ public class Model {
 >>>>>>> 99e34cc953eb2460ddf9ae13f591cb3dfe19eac3
 
 	
+=======
+	// B00004CQT3
+	// B00004CQT4
+	// B000063W1R
+	// B00006HAXW
+	// B003AI2VGA
+	// B003ZG3GAM
+	// B004BH1TN0
+	// B006JIUN2W
+	// B0071AD95K
+	// B0078V2LCY
+>>>>>>> Stashed changes:AmazonMovieReviewer/src/MVC/Model.java
 
 }

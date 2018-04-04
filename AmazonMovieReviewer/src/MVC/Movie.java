@@ -1,10 +1,11 @@
-package loadata;
+package MVC;
 
 public class Movie implements Comparable<Movie> {
 	private SortedList<Review> reviews = new SortedList<Review>();
 	private String productID;
 	private double score;
 
+	
 	public Movie(String productID, double score, Review review) {
 		reviews = new SortedList<Review>();
 		reviews.addSortItem(review);

@@ -1,4 +1,4 @@
-package loadata;
+package MVC;
 
 public class Search {
 	/**
@@ -32,11 +32,13 @@ public class Search {
 		if (lo < hi) {
 			
 			mid = (lo + hi)/2;
-			
+
 			if (target.compareTo(arr.get(mid)) < 0) {
+//				System.out.println(target.getProductID() + " " + arr.get(mid).getProductID() + " " + target.compareTo(arr.get(mid)));
 				return binarySearch(arr,lo,mid,target);
 				
 			} else if (target.compareTo(arr.get(mid)) > 0) {
+//				System.out.println(target.getProductID() + " " + arr.get(mid).getProductID() + " " + target.compareTo(arr.get(mid)));
 				return binarySearch(arr,mid+1,hi,target);
 				
 			}
