@@ -81,7 +81,7 @@ public class GUI extends JFrame {
 		sb.append(r.getReview_detail());
 		sb.append("<div>");
 		sb.append("Helpfulness Rating: ");
-		sb.append(to2dp(r.getHelpfulness()) + "%");
+		sb.append((to2dp(r.getHelpfulness()) * 100) + "%");
 		sb.append("<br>");
 		sb.append("<br>");
 
