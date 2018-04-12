@@ -26,15 +26,18 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 
+/**
+ * The Graphic user interface of the application.
+ * @author shafeeq
+ *
+ */
 public class GUI extends JFrame {
 
-	String introText = "Please insert Movie's ASIN // Product ID";
+	private String introText = "Please insert Movie's ASIN // Product ID";
 
 	private JPanel contentPane;
-	private JScrollPane scroller; 
 	private JTextField In;
 	private JButton btnGo = new JButton("Go!");
-
 	private JLabel movieScore = new JLabel("Movie Rating: ");
 	private JLabel getScore = new JLabel();
 
@@ -44,56 +47,29 @@ public class GUI extends JFrame {
 	private JLabel MovieOut = new JLabel();
 	private JLabel reviewsLabel = new JLabel();
 	private JLabel moviesLabel = new JLabel();
-	
 	private static boolean dataInserted = false;
+
 	Font f = new Font(Font.SERIF, Font.PLAIN, 15);
 	Font fb = new Font(Font.SERIF, Font.BOLD, 15);
 
 	/**
-	 * Launch the application.
+	 * Takes the rating value and covert it to a double that is rounded to 2 decimal places.
+	 * @param value
+	 * @return double
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GUI frame = new GUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	public void setGetScore(String str) {
-		this.getScore.setText(str);
-		this.repaint();
-
-	}
-	
-	
-
-	public void setReview(String str) {
-		this.reviewsLabel.setText(str);
-		this.repaint();
-
-	}
-	
-	public void setMovies(String str) {
-		this.moviesLabel.setText(str);
-		this.repaint();
-	}
-
-	public static double to2dp(double value) {
+	private static double to2dp(double value) {
 		BigDecimal bd = new BigDecimal(value);
 		bd = bd.setScale(2, RoundingMode.HALF_UP);
 		return bd.doubleValue();
 	}
 
 	/**
-	 * Create the frame.
+	 * Takes in a StringBuilder and a review and populates the contents of the Review into the StringBuilder with appropriate HTML tags.
+	 * @param sb
+	 * @param r
+	 * @return 
 	 */
-	public StringBuilder createReview(StringBuilder sb, Review r) {
+	private StringBuilder createReview(StringBuilder sb, Review r) {
 
 		sb.append("User ID: ");
 		sb.append(r.getUserID());
@@ -112,7 +88,13 @@ public class GUI extends JFrame {
 		return sb;
 	}
 	
-	public StringBuilder otherMovies(String[] recommendedMovies, StringBuilder sb) {
+	/**
+	 * Takes in a StringBuilder and an array of Movie names and populates the contents of the Review into the StringBuilder with appropriate HTML tags.
+	 * @param recommendedMovies
+	 * @param sb
+	 * @return
+	 */
+	private StringBuilder otherMovies(String[] recommendedMovies, StringBuilder sb) {
 				
 		for (int i = 0; i < recommendedMovies.length; i++) {	
 			sb.append(" * ");
@@ -123,12 +105,21 @@ public class GUI extends JFrame {
 		return sb;
 	}
 	
+	/**
+	 * Refreshes the GUI screen.
+	 */
 	public void refreshScreen() {
 		
 		this.repaint();
 		this.revalidate();
 	}
 
+	/**
+	 * Takes in a StringBuilder, adds "<html>" and "</html>" at the beginning and end respectively. The StringBuilder is then converted into a string and returned.
+	 * 
+	 * @param sb
+	 * @return
+	 */
 	private String createHTMLString(StringBuilder sb) {
 
 		String middle = sb.toString();
@@ -142,8 +133,14 @@ public class GUI extends JFrame {
 		return sb2.toString();
 	}
 	
-
-	public void postData(String result, int xpos, int ypos, JLabel label) {
+	/**
+	 * Posts the data retrieved from the Movies Array and the Users Binary Search Tree into the form.
+	 * @param result
+	 * @param xpos
+	 * @param ypos
+	 * @param label
+	 */
+	private void postData(String result, int xpos, int ypos, JLabel label) {
 		
 		label.setText(result);
 		label.setForeground(Color.ORANGE);
@@ -153,6 +150,7 @@ public class GUI extends JFrame {
 		contentPane.add(label);
 	}	
 
+	//Constructor.
 	public GUI() {
 
 		setFont(new Font("Dialog", Font.PLAIN, 10));
@@ -161,6 +159,7 @@ public class GUI extends JFrame {
 		setBackground(new Color(25, 25, 112));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
+		setVisible(true);
 		contentPane = new JPanel();
 		contentPane.setPreferredSize(new Dimension(400,400));
 		contentPane.setBackground(new Color(25, 25, 112));

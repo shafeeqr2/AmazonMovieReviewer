@@ -9,6 +9,15 @@ public class Search {
 	 * @param target - target object
 	 * @return - array index of target object, -1 if not found
 	 */
+	
+	/**
+	 * Carries out binary search on a comparable array. Returns the index if the target exists. Otherwise, it returns -1.
+	 * @param arr
+	 * @param lo
+	 * @param hi
+	 * @param target
+	 * @return
+	 */
 	public static int binarySearch(Comparable[] arr, int lo, int hi, Comparable target) {
 		int mid;
 		if (lo < hi) {
@@ -27,6 +36,14 @@ public class Search {
 		return -1; //target not found
 	}
 	
+	/**
+	 * Carries out binary search on the movies array and returns the index of the target movie if it exists in the array. Otherwise, it returns -1.
+	 * @param arr
+	 * @param lo
+	 * @param hi
+	 * @param target
+	 * @return
+	 */
 	public static int binarySearch(SortedList<Movie> arr, int lo, int hi, Movie target) {
 		int mid;
 		if (lo < hi) {

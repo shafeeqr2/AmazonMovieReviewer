@@ -1,5 +1,10 @@
 package MVC;
 
+/**
+ * Implementation of the Binary Search Tree to store and retrieve the user recommended movies information.
+ * @author shafeeq
+ *
+ */
 public class BST {
 	private Node root;
 
