@@ -11,10 +11,48 @@ import java.util.List;
  */
 public class Node implements Comparable<Node> {
 	private String userID;
-	List<userMovie> userMovies = new ArrayList<userMovie>();
-	Node left;
-	Node right;
-	int size;
+	private List<userMovie> userMovies = new ArrayList<userMovie>();
+	private Node left;
+	private Node right;
+	private int size;
+	
+	
+
+	public List<userMovie> getUserMovies() {
+		return userMovies;
+	}
+
+	public void setUserMovies(List<userMovie> userMovies) {
+		this.userMovies = userMovies;
+	}
+
+	public Node getLeft() {
+		return left;
+	}
+
+	public void setLeft(Node left) {
+		this.left = left;
+	}
+
+	public Node getRight() {
+		return right;
+	}
+
+	public void setRight(Node right) {
+		this.right = right;
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+	public void setUserID(String userID) {
+		this.userID = userID;
+	}
 
 	/**
 	 * Constructor for Node class used for Binary Search Tree. It takes in the userID and the userMovie objects.

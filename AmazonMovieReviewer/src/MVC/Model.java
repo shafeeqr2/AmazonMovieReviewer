@@ -19,12 +19,39 @@ public class Model {
 	//Declare Search object used for Binary Search
 	Search search = new Search();
 
+	
+	/**
+	 * Returns Search object used to carry out Binary Search.
+	 * @return
+	 */
+	public Search getSearch() {
+		return search;
+	}
+	
 	// Declaration a SortedList Object to store all the movies
 	static SortedList<Movie> movies = new SortedList<Movie>();
+
+	
+	/**
+	 * Returns movies array.
+	 * @return
+	 */
+	public static SortedList<Movie> getMovies() {
+		return movies;
+	}
 
 	// Declaration of the Binary Search Tree
 	static BST binaryST = new BST();
 	
+	
+	/**
+	 * Returns binary Search Tree.
+	 * @return
+	 */
+	public static BST getBinaryST() {
+		return binaryST;
+	}
+
 	//This method returns the data of a particular row and inputs it into a given column of records
 	private static String getRowData(List<String> records, int rowNum) {
 		return records.get(rowNum).substring(records.get(rowNum).indexOf(" ") + 1);
@@ -138,7 +165,7 @@ public class Model {
 	 * This method reads the contents of the text file and populates the Binary Search Tree and Movies Array Simultaneously. 
 	 * @param filename
 	 */
-	private static void readFile(String filename) {
+	public static void readFile(String filename) {
 
 		// Records for one single review.
 		List<String> records = new ArrayList<String>();

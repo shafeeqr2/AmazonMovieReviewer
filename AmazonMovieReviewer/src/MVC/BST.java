@@ -7,6 +7,12 @@ package MVC;
  */
 public class BST {
 	private Node root;
+	
+	
+
+	public Node getRoot() {
+		return root;
+	}
 
 	public BST() {
 		this.root = null;
@@ -16,10 +22,10 @@ public class BST {
 		return size(root);
 	}
 
-	private int size(Node node) {
+	public int size(Node node) {
 		if (node == null)
 			return 0;
-		return node.size;
+		return node.getSize();
 	}
 
 	public void add(String userID, userMovie umovie) {
@@ -34,16 +40,16 @@ public class BST {
 		int cmp = userID.compareTo(x.getUserID());
 
 		if (cmp < 0)
-			x.left = add(x.left, userID, umovie);
+			x.setLeft(add(x.getLeft(), userID, umovie));
 		else if (cmp > 0)
-			x.right = add(x.right, userID, umovie);
+			x.setRight(add(x.getRight(), userID, umovie));
 		else {
 			x.add(umovie);
-			x.size--;
+			x.setSize(x.getSize() - 1);
 		}
 
 
-		x.size = size(x.left) + size(x.right) + 1;
+		x.setSize(size(x.getLeft()) + size(x.getRight()) + 1);
 		return x;
 	}
 
@@ -54,9 +60,9 @@ public class BST {
 		boolean b = true;
 		while (b == true) {
 			if (userID.compareTo(current.getUserID()) < 0)
-				current = current.left;
+				current = current.getLeft();
 			else if (userID.compareTo(current.getUserID()) > 0)
-				current = current.right;
+				current = current.getRight();
 			else
 				b = false;
 		}
@@ -86,11 +92,11 @@ public class BST {
 		if (node == null)
 			return null;
 
-		int leftsize = size(node.left);
+		int leftsize = size(node.getLeft());
 		if (leftsize > n)
-			return nodeAtPosition(node.left, n);
+			return nodeAtPosition(node.getLeft(), n);
 		else if (leftsize < n)
-			return nodeAtPosition(node.right, n - leftsize - 1);
+			return nodeAtPosition(node.getRight(), n - leftsize - 1);
 		else
 			return node;
 
@@ -98,14 +104,14 @@ public class BST {
 
 	public void Balance() {
 		BST balanced = new BST();
-		Balance(balanced, 0, root.size-1);
+		Balance(balanced, 0, root.getSize()-1);
 		this.root = balanced.root;
 	}
 
 	public void Balance(BST bst, int l, int r) {
 		int median = Math.round((r + l) / 2);
 		Node n = nodeAtPosition(median);
-		for (userMovie um: n.userMovies)
+		for (userMovie um: n.getUserMovies())
 			bst.add(n.getUserID(),um);
 		if (l <= (median - 1))
 			Balance(bst, l, median - 1);
